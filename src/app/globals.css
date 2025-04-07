@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary color palette */
+    --color-primary: 0, 113, 227;
+    --color-primary-light: 0, 122, 255;
+    --color-primary-dark: 0, 119, 237;
+    
+    /* Secondary colors */
+    --color-secondary: 134, 134, 139;
+    --color-secondary-light: 120, 120, 128;
+    --color-secondary-dark: 142, 142, 147;
+    
+    /* Accent colors */
+    --color-accent-purple: 175, 82, 222;
+    --color-accent-orange: 255, 149, 0;
+    --color-accent-pink: 255, 45, 85;
+    --color-accent-green: 52, 199, 89;
+    --color-accent-teal: 90, 200, 250;
+    
+    /* Background colors */
+    --color-background: 255, 255, 255;
+    --color-surface: 249, 249, 249;
+    --color-surface-alt: 242, 242, 247;
+    
+    /* Text colors */
+    --color-text-primary: 0, 0, 0;
+    --color-text-secondary: 60, 60, 67;
+    --color-text-tertiary: 128, 128, 128;
+
+    /* Fonts */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display',
+      'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'SF Mono', SFMono-Regular, ui-monospace,
+      Menlo, Monaco, 'Courier New', monospace;
+  }
+
+  .dark {
+    /* Primary color palette */
+    --color-primary: 10, 132, 255;
+    --color-primary-light: 10, 140, 255;
+    --color-primary-dark: 10, 125, 245;
+    
+    /* Secondary colors */
+    --color-secondary: 142, 142, 147;
+    --color-secondary-light: 158, 158, 163;
+    --color-secondary-dark: 120, 120, 125;
+    
+    /* Accent colors */
+    --color-accent-purple: 191, 90, 242;
+    --color-accent-orange: 255, 159, 10;
+    --color-accent-pink: 255, 55, 95;
+    --color-accent-green: 48, 209, 88;
+    --color-accent-teal: 100, 210, 255;
+    
+    /* Background colors */
+    --color-background: 0, 0, 0;
+    --color-surface: 28, 28, 30;
+    --color-surface-alt: 44, 44, 46;
+    
+    /* Text colors */
+    --color-text-primary: 255, 255, 255;
+    --color-text-secondary: 235, 235, 245;
+    --color-text-tertiary: 174, 174, 178;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-text-secondary));
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    letter-spacing: -0.011em;
+  }
+
+  ::selection {
+    background: rgba(var(--color-primary), 0.3);
+    color: rgb(var(--color-primary-dark));
+  }
+}
+
+@layer components {
+  /* Styled buttons */
+  .btn-apple {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: rgb(var(--color-primary));
+    color: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-apple:hover {
+    background-color: rgb(var(--color-primary-dark));
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  .btn-apple-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: rgba(var(--color-primary), 0.1);
+    color: rgb(var(--color-primary));
+  }
+
+  .btn-apple-secondary:hover {
+    background-color: rgba(var(--color-primary), 0.15);
+    transform: translateY(-1px);
+  }
+
+  /* Styled cards */
+  .card-apple {
+    border-radius: 16px;
+    background: rgb(var(--color-surface));
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .card-apple:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+  
+  .card-apple-glass {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+  }
+  
+  .dark .card-apple-glass {
+    background: rgba(44, 44, 46, 0.7);
+    border: 1px solid rgba(70, 70, 72, 0.18);
+  }
+  
+  /* Styled containers */
+  .container-apple {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  /* Background patterns */
+  .bg-grid-pattern-light {
+    background-size: 20px 20px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
+  
+  .bg-grid-pattern-dark {
+    background-size: 20px 20px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+  
+  /* Noise texture */
+  .bg-noise {
+    position: relative;
+  }
+  
+  .bg-noise::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  
+  /* Section styling */
+  .section-apple {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section-apple-dark {
+    background: rgb(28, 28, 30);
+    color: rgb(235, 235, 245);
+  }
+  
+  .section-apple-light {
+    background: rgb(249, 249, 249);
+    color: rgb(60, 60, 67);
+  }
+}
+
+@layer utilities {
+  /* Typography utilities */
+  .headline-hero {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-accent-purple)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  @media (min-width: 768px) {
+    .headline-hero {
+      font-size: 4.5rem;
+    }
+  }
+  
+  .headline-section {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  @media (min-width: 768px) {
+    .headline-section {
+      font-size: 3rem;
+    }
+  }
+  
+  /* Shadows */
+  .shadow-apple-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-apple-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-apple-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Glassmorphism */
+  .backdrop-blur-apple {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  
+  /* Gradients */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-accent-purple)) 100%);
+  }
+  
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, rgb(var(--color-accent-pink)) 0%, rgb(var(--color-accent-orange)) 100%);
+  }
+  
+  .bg-gradient-tertiary {
+    background: linear-gradient(135deg, rgb(var(--color-accent-teal)) 0%, rgb(var(--color-accent-green)) 100%);
+  }
+  
+  /* Text gradients */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-accent-purple)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+  .text-gradient-secondary {
+    background: linear-gradient(135deg, rgb(var(--color-accent-pink)) 0%, rgb(var(--color-accent-orange)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatBlob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(5px, -5px) scale(1.02);
+  }
+  50% {
+    transform: translate(10px, 10px) scale(0.98);
+  }
+  75% {
+    transform: translate(-5px, 5px) scale(1.01);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-float {
+  animation: floatBlob 8s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
