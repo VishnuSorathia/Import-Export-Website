@@ -1,0 +1,466 @@
+
+/* This is an updated globals.css file */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: 0, 113, 227;
+    --color-primary-light: 0, 122, 255;
+    --color-primary-dark: 0, 119, 237;
+
+    /* Secondary Colors */
+    --color-secondary: 134, 134, 139;
+    --color-secondary-light: 120, 120, 128;
+    --color-secondary-dark: 142, 142, 147;
+
+    /* Accent Colors */
+    --color-accent-purple: 175, 82, 222;
+    --color-accent-orange: 255, 149, 0;
+    --color-accent-pink: 255, 45, 85;
+    --color-accent-green: 52, 199, 89;
+    --color-accent-teal: 90, 200, 250;
+
+    /* Unified Gray Scale for Light Mode */
+    --color-gray-50: 250, 250, 252;
+    --color-gray-100: 245, 245, 247;
+    --color-gray-200: 235, 235, 240;
+    --color-gray-300: 220, 220, 225;
+    --color-gray-400: 190, 190, 195;
+    --color-gray-500: 142, 142, 147;
+    --color-gray-600: 110, 110, 115;
+    --color-gray-700: 80, 80, 85;
+    --color-gray-800: 50, 50, 55;
+    --color-gray-900: 30, 30, 35;
+    --color-gray-950: 15, 15, 20;
+
+    /* Background Colors */
+    --color-background: 255, 255, 255;
+    --color-surface: 249, 249, 249;
+    --color-surface-alt: 242, 242, 247;
+
+    /* Text Colors */
+    --color-text-primary: 0, 0, 0;
+    --color-text-secondary: 60, 60, 67;
+    --color-text-tertiary: 128, 128, 128;
+
+    /* Fonts */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Monaco, 'Courier New', monospace;
+
+    /* Text on Background Colors */
+    --color-text-on-primary: 255, 255, 255;
+    --color-text-on-surface: 60, 60, 67;
+    --color-text-on-dark: 255, 255, 255;
+    --color-text-on-light: 0, 0, 0;
+
+    /* Border Colors */
+    --color-border-light: 230, 230, 230;
+    --color-border-dark: 70, 70, 72;
+
+    /* Shadow Color */
+    --color-shadow: 0, 0, 0;
+
+    /* UPDATED: Further Reduced Spacing Variables */
+    --section-spacing: 3rem;
+    --section-spacing-sm: 1.5rem;
+    --section-spacing-lg: 4rem;
+    --content-spacing: 1.5rem;
+  }
+
+  .dark {
+    /* Primary Colors - Slightly Brighter for Dark Mode */
+    --color-primary: 10, 132, 255;
+    --color-primary-light: 64, 156, 255;
+    --color-primary-dark: 0, 112, 235;
+
+    /* Secondary Colors */
+    --color-secondary: 142, 142, 147;
+    --color-secondary-light: 158, 158, 163;
+    --color-secondary-dark: 120, 120, 125;
+
+    /* Accent Colors - Brighter for Dark Mode */
+    --color-accent-purple: 191, 90, 242;
+    --color-accent-orange: 255, 159, 10;
+    --color-accent-pink: 255, 55, 95;
+    --color-accent-green: 48, 209, 88;
+    --color-accent-teal: 100, 210, 255;
+
+    /* Unified Gray Scale for Dark Mode */
+    --color-gray-50: 35, 35, 37;
+    --color-gray-100: 44, 44, 46;
+    --color-gray-200: 58, 58, 60;
+    --color-gray-300: 72, 72, 74;
+    --color-gray-400: 99, 99, 102;
+    --color-gray-500: 142, 142, 147;
+    --color-gray-600: 174, 174, 178;
+    --color-gray-700: 199, 199, 204;
+    --color-gray-800: 220, 220, 225;
+    --color-gray-900: 235, 235, 240;
+    --color-gray-950: 245, 245, 247;
+
+    /* CRITICAL FIX: Ensure ONE consistent dark background color */
+    --color-background: 28, 28, 30;
+    --color-surface: 28, 28, 30;     /* Matching background for consistency */
+    --color-surface-alt: 38, 38, 40;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-text-secondary));
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    letter-spacing: -0.011em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* CRITICAL FIX: Remove all section dividers and borders */
+  section {
+    padding-top: var(--section-spacing-sm);
+    padding-bottom: var(--section-spacing-sm);
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border: none !important;
+    margin: 0 !important;
+    /* Ensure consistent background in light/dark mode */
+    background-color: rgb(var(--color-background)) !important;
+  }
+
+  /* CRITICAL FIX: Remove space between sections */
+  section + section {
+    padding-top: 0;
+    border-top: none !important;
+    margin-top: 0 !important;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding-top: var(--section-spacing);
+      padding-bottom: var(--section-spacing);
+    }
+
+    section + section {
+      padding-top: 0;
+    }
+  }
+
+  /* Specific section for "Discover More" */
+  .discover-more-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    max-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* CRITICAL FIX: Remove background styling that could cause lines */
+    background: transparent !important;
+    border: none !important;
+  }
+
+  /* CRITICAL FIX: Force consistent backgrounds for special sections */
+  .section-hero, 
+  .section-about,
+  #home,
+  #about,
+  #portfolio,
+  #services,
+  #contact {
+    background-color: rgb(var(--color-background)) !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* CRITICAL FIX: Remove any border styles from these sections */
+  .section-hero {
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  .section-about {
+    padding-top: 0 !important; 
+    border-top: none !important;
+    margin-top: 0 !important;
+  }
+
+  /* Container padding */
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    max-width: 1280px;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+}
+
+@layer utilities {
+  /* Remove decorative background patterns */
+  .bg-noise,
+  .bg-grid-pattern-light,
+  .bg-grid-pattern-dark,
+  .bg-decorative {
+    display: none !important;
+  }
+
+  /* Section Spacing */
+  .section-container {
+    @apply w-full px-4 md:px-8 py-6 md:py-8;
+  }
+
+  /* Container with no blank spaces */
+  .content-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-white bg-primary hover:bg-primary-dark transition-all duration-200 shadow-apple-sm hover:shadow-apple-md;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-primary bg-white dark:bg-gray-100 border border-gray-200 dark:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-200 transition-all duration-200 shadow-apple-sm hover:shadow-apple-md;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-primary dark:text-primary-light border border-primary dark:border-primary-light hover:bg-primary/5 dark:hover:bg-primary-light/10 transition-all duration-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white dark:bg-gray-100 rounded-apple border border-gray-200 dark:border-gray-300 shadow-apple-sm hover:shadow-apple-md transition-all duration-200;
+  }
+
+  .card-alt {
+    @apply bg-surface dark:bg-surface rounded-apple border border-gray-200 dark:border-gray-300 shadow-apple-sm hover:shadow-apple-md transition-all duration-200;
+  }
+
+  /* Surface styles */
+  .surface-primary {
+    @apply bg-white dark:bg-gray-50;
+  }
+
+  .surface-secondary {
+    @apply bg-surface dark:bg-surface;
+  }
+
+  .surface-tertiary {
+    @apply bg-surface-alt dark:bg-surface-alt;
+  }
+
+  /* Headings */
+  .headline {
+    @apply text-3xl md:text-4xl font-bold leading-tight text-text-primary;
+  }
+
+  .subheadline {
+    @apply text-lg leading-normal text-text-secondary;
+  }
+
+  /* Custom spacing utilities */
+  .space-y-content {
+    @apply space-y-6;
+  }
+
+  .space-y-content-sm {
+    @apply space-y-3;
+  }
+
+  .space-y-content-lg {
+    @apply space-y-10;
+  }
+
+  /* Custom max-width utilities */
+  .max-w-content {
+    @apply max-w-screen-lg;
+  }
+
+  .max-w-content-sm {
+    @apply max-w-screen-md;
+  }
+
+  .max-w-content-lg {
+    @apply max-w-screen-xl;
+  }
+
+  /* Custom text color utilities */
+  .text-text-primary {
+    color: rgb(var(--color-text-primary));
+  }
+
+  .text-text-secondary {
+    color: rgb(var(--color-text-secondary));
+  }
+
+  .text-text-tertiary {
+    color: rgb(var(--color-text-tertiary));
+  }
+
+  .text-text-on-dark {
+    color: rgb(var(--color-text-on-dark));
+  }
+
+  .text-text-on-primary {
+    color: rgb(var(--color-text-on-primary));
+  }
+
+  /* CRITICAL FIX: Enhanced theme transition for smoother experience */
+  .theme-transition {
+    @apply transition-colors duration-300;
+  }
+
+  .theme-transition * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* CRITICAL FIX: Ensure dark mode transitions are consistent */
+  .dark body,
+  .dark section,
+  .dark header,
+  .dark footer,
+  .dark div,
+  .dark nav {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Dividers */
+  .divider {
+    @apply h-px w-full bg-gray-200 dark:bg-gray-300;
+  }
+
+  .divider-vertical {
+    @apply w-px h-full bg-gray-200 dark:bg-gray-300;
+  }
+
+  /* Better spacing control */
+  .no-bottom-padding {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+
+  .no-top-padding {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    border-top: none !important;
+  }
+
+  .no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  /* Class to hide specific sections */
+  .hide-section {
+    display: none !important;
+  }
+
+  /* Class for minimal height section */
+  .minimal-section {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    max-height: 60px;
+    border: none !important;
+  }
+
+  .reduced-spacing {
+    padding-top: calc(var(--section-spacing-sm) * 0.25) !important;
+    padding-bottom: calc(var(--section-spacing-sm) * 0.25) !important;
+  }
+
+  @media (min-width: 768px) {
+    .reduced-spacing {
+      padding-top: calc(var(--section-spacing) * 0.25) !important;
+      padding-bottom: calc(var(--section-spacing) * 0.25) !important;
+    }
+  }
+
+  /* CRITICAL FIX: Completely remove the section divider */
+  .section-divider::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+  
+  /* CRITICAL FIX: Override any possible source of lines */
+  #home::after, #about::after, #portfolio::after, #contact::after, #services::after,
+  #home::before, #about::before, #portfolio::before, #contact::before, #services::before,
+  .section-hero::after, .section-about::after,
+  .section-hero::before, .section-about::before {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    border: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+}
+
+/* CRITICAL FIX: Force dark theme consistency for specific sections */
+.dark #home, 
+.dark #about,
+.dark #portfolio,
+.dark #contact,
+.dark #services,
+.dark .section-hero,
+.dark .section-about {
+  background-color: rgb(28, 28, 30) !important;
+}
+
+/* CRITICAL FIX: Override any Tailwind classes that might be causing issues */
+.dark .bg-white.dark\:bg-gray-900 {
+  background-color: rgb(28, 28, 30) !important;
+}
+
+/* CRITICAL FIX: Remove any borders from specific problem areas */
+.discover-more-section + #about,
+#home + .discover-more-section,
+.discover-more-section + .section-about,
+.section-hero + .discover-more-section {
+  border-top: none !important;
+  border-bottom: none !important;
+  background-color: rgb(var(--color-background)) !important;
+}
+
+/* CRITICAL FIX: Fix the specific dark bar shown in your screenshots */
+.dark .discover-more-section {
+  background-color: rgb(28, 28, 30) !important;
+}
+
+/* CRITICAL FIX: Make sure all div elements inside sections have consistent backgrounds */
+.dark section > div {
+  background-color: rgb(28, 28, 30) !important;
+}
